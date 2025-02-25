@@ -27,16 +27,20 @@ module Jekyll
       Dotenv.load
     end
 
+    # TODO: figure out how to skip generation if there are no Algolia environment variables set
     def generate(site)
-      @site = site
-      return unless check_config?
-      @prefix = site.config['algolia_prefix'] || ''
-      @random_code = random_code
-      Algolia.init(application_id: site.config['algolia_app_id'],
-                   api_key: site.config['algolia_api_key'])
-      @indexes = setup_indexes
-      generate_all
     end
+
+    # def generate(site)
+    #   @site = site
+    #   return unless check_config?
+    #   @prefix = site.config['algolia_prefix'] || ''
+    #   @random_code = random_code
+    #   Algolia.init(application_id: site.config['algolia_app_id'],
+    #                api_key: site.config['algolia_api_key'])
+    #   @indexes = setup_indexes
+    #   generate_all
+    # end
 
     private
 
