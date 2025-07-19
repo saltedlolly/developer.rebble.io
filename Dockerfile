@@ -1,4 +1,4 @@
-FROM ruby:3.3.6
+FROM ruby:3.3.8
 
 RUN apt-get update && \
     apt-get install -y --force-yes python3 nodejs zlib1g && \
