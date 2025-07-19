@@ -34,28 +34,10 @@
         "type": "github"
       }
     },
-    "nixpkgs-ruby": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1518601612,
-        "narHash": "sha256-GTL2ZV0g/rcm8xNQk3RMLfoTtFIC8R0q3Oh85rjeSA0=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "c80adf5f72b8ea4ebd83d04bfbfbdc4cebbeed6f",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "c80adf5f72b8ea4ebd83d04bfbfbdc4cebbeed6f",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "flake-utils": "flake-utils",
-        "nixpkgs": "nixpkgs",
-        "nixpkgs-ruby": "nixpkgs-ruby"
+        "nixpkgs": "nixpkgs"
       }
     },
     "systems": {
