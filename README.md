@@ -1,6 +1,6 @@
 # [developer.pebble.com][site]
 
-[![Build Status](https://magnum.travis-ci.com/pebble/developer.getpebble.com.svg?token=HUQ9CCUxB447Nq1exrnd)][travis]
+[![Build static site](https://github.com/pebble-dev/developer.rebble.io/actions/workflows/build.yml/badge.svg)](https://github.com/pebble-dev/developer.rebble.io/actions/workflows/build.yml)
 
 This is the repository for the [Pebble Developer website][site].
 
