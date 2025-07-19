@@ -22,8 +22,42 @@ GEM
     eventmachine (1.2.7)
     execjs (2.10.0)
     ffi (1.17.2)
+    ffi (1.17.2-aarch64-linux-gnu)
+    ffi (1.17.2-aarch64-linux-musl)
+    ffi (1.17.2-arm-linux-gnu)
+    ffi (1.17.2-arm-linux-musl)
+    ffi (1.17.2-arm64-darwin)
+    ffi (1.17.2-x86-linux-gnu)
+    ffi (1.17.2-x86-linux-musl)
+    ffi (1.17.2-x86_64-darwin)
+    ffi (1.17.2-x86_64-linux-gnu)
+    ffi (1.17.2-x86_64-linux-musl)
     forwardable-extended (2.6.0)
     google-protobuf (4.31.1)
+      bigdecimal
+      rake (>= 13)
+    google-protobuf (4.31.1-aarch64-linux-gnu)
+      bigdecimal
+      rake (>= 13)
+    google-protobuf (4.31.1-aarch64-linux-musl)
+      bigdecimal
+      rake (>= 13)
+    google-protobuf (4.31.1-arm64-darwin)
+      bigdecimal
+      rake (>= 13)
+    google-protobuf (4.31.1-x86-linux-gnu)
+      bigdecimal
+      rake (>= 13)
+    google-protobuf (4.31.1-x86-linux-musl)
+      bigdecimal
+      rake (>= 13)
+    google-protobuf (4.31.1-x86_64-darwin)
+      bigdecimal
+      rake (>= 13)
+    google-protobuf (4.31.1-x86_64-linux-gnu)
+      bigdecimal
+      rake (>= 13)
+    google-protobuf (4.31.1-x86_64-linux-musl)
       bigdecimal
       rake (>= 13)
     googlestaticmap (1.2.6)
@@ -76,6 +110,22 @@ GEM
     newrelic_rpm (9.19.0)
     nokogiri (1.18.8)
       mini_portile2 (~> 2.8.2)
+      racc (~> 1.4)
+    nokogiri (1.18.8-aarch64-linux-gnu)
+      racc (~> 1.4)
+    nokogiri (1.18.8-aarch64-linux-musl)
+      racc (~> 1.4)
+    nokogiri (1.18.8-arm-linux-gnu)
+      racc (~> 1.4)
+    nokogiri (1.18.8-arm-linux-musl)
+      racc (~> 1.4)
+    nokogiri (1.18.8-arm64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.18.8-x86_64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.18.8-x86_64-linux-gnu)
+      racc (~> 1.4)
+    nokogiri (1.18.8-x86_64-linux-musl)
       racc (~> 1.4)
     parallel (1.27.0)
     parser (3.3.8.0)
@@ -142,6 +192,34 @@ GEM
     sass-embedded (1.89.2)
       google-protobuf (~> 4.31)
       rake (>= 13)
+    sass-embedded (1.89.2-aarch64-linux-android)
+      google-protobuf (~> 4.31)
+    sass-embedded (1.89.2-aarch64-linux-gnu)
+      google-protobuf (~> 4.31)
+    sass-embedded (1.89.2-aarch64-linux-musl)
+      google-protobuf (~> 4.31)
+    sass-embedded (1.89.2-arm-linux-androideabi)
+      google-protobuf (~> 4.31)
+    sass-embedded (1.89.2-arm-linux-gnueabihf)
+      google-protobuf (~> 4.31)
+    sass-embedded (1.89.2-arm-linux-musleabihf)
+      google-protobuf (~> 4.31)
+    sass-embedded (1.89.2-arm64-darwin)
+      google-protobuf (~> 4.31)
+    sass-embedded (1.89.2-riscv64-linux-android)
+      google-protobuf (~> 4.31)
+    sass-embedded (1.89.2-riscv64-linux-gnu)
+      google-protobuf (~> 4.31)
+    sass-embedded (1.89.2-riscv64-linux-musl)
+      google-protobuf (~> 4.31)
+    sass-embedded (1.89.2-x86_64-darwin)
+      google-protobuf (~> 4.31)
+    sass-embedded (1.89.2-x86_64-linux-android)
+      google-protobuf (~> 4.31)
+    sass-embedded (1.89.2-x86_64-linux-gnu)
+      google-protobuf (~> 4.31)
+    sass-embedded (1.89.2-x86_64-linux-musl)
+      google-protobuf (~> 4.31)
     simplecov (0.22.0)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
@@ -157,7 +235,25 @@ GEM
     webrick (1.9.1)
 
 PLATFORMS
+  aarch64-linux-android
+  aarch64-linux-gnu
+  aarch64-linux-musl
+  arm-linux-androideabi
+  arm-linux-gnu
+  arm-linux-gnueabihf
+  arm-linux-musl
+  arm-linux-musleabihf
+  arm64-darwin
+  riscv64-linux-android
+  riscv64-linux-gnu
+  riscv64-linux-musl
   ruby
+  x86-linux-gnu
+  x86-linux-musl
+  x86_64-darwin
+  x86_64-linux-android
+  x86_64-linux-gnu
+  x86_64-linux-musl
 
 DEPENDENCIES
   algoliasearch (>= 1.6.1)
