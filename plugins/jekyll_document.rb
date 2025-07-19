@@ -23,12 +23,12 @@ module Jekyll
     alias_method :parent_to_liquid, :to_liquid
 
     def to_liquid
-      parent_to_liquid
-      # TODO: why is this infinite recursion?
-      # Utils.deep_merge_hashes parent_to_liquid, {
-      #   'toc' => toc,
-      #   'related_docs' => related_docs
-      # }
+      parent_to_liquid.merge(
+        {
+          'toc' => toc,
+          'related_docs' => related_docs
+        }
+      )
     end
 
     private
