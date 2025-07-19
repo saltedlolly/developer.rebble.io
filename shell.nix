@@ -10,7 +10,9 @@ pkgs.mkShell {
     bundler
     nodejs
     ruby
+    solargraph
     python3
+    vscode-langservers-extracted
     zlib
   ];
 }
