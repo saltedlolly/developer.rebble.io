@@ -1,8 +1,7 @@
-FROM ruby:2.2.9
+FROM ruby:3.3.6
 
-COPY docker/sources.list /etc/apt/sources.list
 RUN apt-get update && \
-    apt-get install -y --force-yes python2.7 nodejs zlib1g && \
+    apt-get install -y --force-yes python3 nodejs zlib1g && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
