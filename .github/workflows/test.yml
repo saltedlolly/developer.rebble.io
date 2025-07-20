@@ -26,3 +26,4 @@ jobs:
         uses: SonicGarden/rspec-report-action@v6
         with:
           json-path: /tmp/rspec_report.json
+        if: always()
