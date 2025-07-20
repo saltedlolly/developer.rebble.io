@@ -49,6 +49,11 @@ function processResult(result) {
 }
 
 function Search(config) {
+  if (!config.appId || !config.apiKey || !config.prefix) {
+    console.warn("Algolia environment variables not configured - search disabled");
+    return;
+  }
+
   this.client = new AlgoliaSearch(config.appId, config.apiKey);
   this.prefix = config.prefix;
   this.searchNumber = 0;
@@ -98,6 +103,8 @@ Search.indexes = {
 };
 
 Search.prototype.search = function (query) {
+  if (!this.client) return;
+
   if (query === this.lastQuery) {
     return;
   }
