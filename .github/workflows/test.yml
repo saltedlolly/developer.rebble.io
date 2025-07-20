@@ -24,6 +24,7 @@ jobs:
 
       - name: Upload report artifact
         uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: test-report
           path: /tmp/rspec_report.json
