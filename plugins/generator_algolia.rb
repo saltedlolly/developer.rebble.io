@@ -27,39 +27,53 @@ module Jekyll
       Dotenv.load
     end
 
-    # TODO: figure out how to skip generation if there are no Algolia environment variables set
     def generate(site)
-    end
+      @site = site
+      config = get_config
+      return unless config
 
-    # def generate(site)
-    #   @site = site
-    #   return unless check_config?
-    #   @prefix = site.config['algolia_prefix'] || ''
-    #   @random_code = random_code
-    #   Algolia.init(application_id: site.config['algolia_app_id'],
-    #                api_key: site.config['algolia_api_key'])
-    #   @indexes = setup_indexes
-    #   generate_all
-    # end
+      @prefix = config['prefix']
+      @random_code = random_code
+      Algolia.init(application_id: config['app_id'],
+                   api_key: config['api_key'])
+      @indexes = setup_indexes
+      generate_all
+    end
 
     private
 
-    def check_config?
-      if @site.config['algolia_app_id'].nil? || @site.config['algolia_app_id'].empty?
+    def env_var_defined?(var)
+      @site.config[var].nil? || @site.config[var].empty?
+    end
+
+    def get_config
+      if env_var_defined?('algolia_app_id')
         Jekyll.logger.warn(
           'Config Warning:',
-          'You did not provide a ALGOLIA_APP_ID environment variable.'
+          'You did not provide a ALGOLIA_APP_ID environment variable. Skipping search index generation.'
         )
-        return false
+        return nil
       end
-      if @site.config['algolia_api_key'].nil? || @site.config['algolia_api_key'].empty?
+      if env_var_defined?('algolia_api_key')
         Jekyll.logger.warn(
           'Config Warning:',
-          'You did not provide a ALGOLIA_API_KEY environment variable.'
+          'You did not provide a ALGOLIA_API_KEY environment variable. Skipping search index generation.'
         )
-        return false
+        return nil
       end
-      true
+      if env_var_defined?('algolia_prefix')
+        Jekyll.logger.warn(
+          'Config Warning:',
+          'You did not provide a ALGOLIA_PREFIX environment variable. Skipping search index generation.'
+        )
+        return nil
+      end
+
+      {
+        'app_id' => @site.config['algolia_app_id'],
+        'api_key' => @site.config['algolia_api_key'],
+        'prefix' => @site.config['algolia_prefix']
+      }
     end
 
     def generate_all
