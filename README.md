@@ -1,4 +1,4 @@
-# [developer.pebble.com][site]
+# [developer.rebble.io][site]
 
 [![Build static site](https://github.com/pebble-dev/developer.rebble.io/actions/workflows/build.yml/badge.svg)](https://github.com/pebble-dev/developer.rebble.io/actions/workflows/build.yml)
 
@@ -176,9 +176,8 @@ the text color, use `--fg-<COLOR>`.
 
 Trouble building the developer site? Read the [Troubleshooting](/docs/troubleshooting.md) page for some possible solutions.
 
-[site]: https://developer.pebble.com
+[site]: https://developer.rebble.io
 [markdown]: ./docs/markdown.md
 [slick]: http://kenwheeler.github.io/slick/
 [tinypng]: https://tinypng.com/
 [tinyjpg]: https://tinyjpg.com/
-[travis]: https://magnum.travis-ci.com/pebble/developer.getpebble.com
