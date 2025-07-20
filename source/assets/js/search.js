@@ -54,7 +54,7 @@ function Search(config) {
     return;
   }
 
-  this.client = new AlgoliaSearch(config.appId, config.apiKey);
+  this.client = new AlgoliaSearch(config.appId, config.apiKey, { method: 'https' });
   this.prefix = config.prefix;
   this.searchNumber = 0;
   this.lastQuery = null;
