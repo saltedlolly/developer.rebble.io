@@ -16,6 +16,10 @@ require 'open-uri'
 require 'jekyll'
 
 shared_context 'docs' do
+  before {
+    skip('Docs generation disabled') if ENV['SKIP_DOCS'] == 'true'
+  }
+
   def load_config
     config = File.join(File.dirname(__FILE__), '../source/_data/docs.yaml')
     YAML.load(File.read(config))
