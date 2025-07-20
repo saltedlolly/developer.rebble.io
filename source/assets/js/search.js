@@ -91,21 +91,6 @@ Search.indexes = {
     title: 'Examples',
     cssClass: 'more',
   },
-  'community-resources': {
-    title: 'Community Resources',
-    cssClass: 'community',
-    section: function (hit) {
-      switch(hit.resourceType) {
-        case 'community_tools':
-          return ['Tool'];
-        case 'community_apps':
-          return ['App'];
-        case 'community_libraries':
-          return ['Library']
-      }
-      return [];
-    }
-  },
   'other': {
     title: 'Other',
     cssClass: 'other'
