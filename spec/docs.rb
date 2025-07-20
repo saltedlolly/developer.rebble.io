@@ -37,7 +37,7 @@ shared_context 'docs' do
 
   # rubocop:disable Metrics/MethodLength
   def fake_site
-    config = Jekyll::Configuration::DEFAULTS
+    config = Jekyll::Configuration::DEFAULTS.dup
     config['source'] = './source/'
     Jekyll::Site.new(config)
   end
