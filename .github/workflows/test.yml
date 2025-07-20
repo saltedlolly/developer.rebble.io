@@ -1,0 +1,28 @@
+name: Run tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+
+      - name: Run tests
+        run: bundle exec rspec -f json -o /tmp/rspec_report.json -f progress
+        env:
+          SKIP_DOCS: true # TODO: remove once we can get docs artifacts in here easily
+
+      - name: Report results
+        uses: SonicGarden/rspec-report-action@v6
+        with:
+          json-path: /tmp/rspec_report.json
