@@ -103,7 +103,7 @@ module Pebble
       url = "#{@path}#{name_to_url(package[:name])}"
 
       html = summary.at_css('#class-summary').to_html
-      html = process_html(html, url)
+      html = process_html(html, url, is_package: true)
 
       @pages << PageDocPebbleKitAndroid.new(@site, url, package[:name], html, package)
 
@@ -194,14 +194,18 @@ module Pebble
       name.split('.').join('/')
     end
 
-    def process_html(html, root)
+    def process_html(html, root, is_package: false)
       contents = Nokogiri::HTML(html)
-      contents.css('a').each do | link |
-        next if link['href'].nil?
+      contents.css('a').each do |link|
+        href = link['href']
+        next if href.nil?
 
-        href =  File.expand_path(link['href'], root)
-        href = href.sub('/com/com/', '/com/')
-        href = href.sub('.html', '/')
+        unless href.start_with?('https://')
+          href = "../#{href}" unless is_package or href.start_with?('#')
+          href = File.expand_path(href, root)
+                     .sub('/com/com/', '/com/')
+                     .sub('.html', '/')
+        end
         link['href'] = href
       end
       contents.css('.memberSummary caption').remove
