@@ -40,7 +40,7 @@ quality of the implementation of each one, and avoid common bugs.
 
 ## Waiting for PebbleKit JS
 
-Any app that wishes to send data from the watch to the phone via 
+Any app that wishes to send data from the watch to the phone via
 {% guide_link communication/using-pebblekit-js "PebbleKit JS" %} **must**
 wait until the JavaScript `ready` event has occured, indicating that the phone
 has loaded the JavaScript component of the launching app. If this JavaScript
@@ -68,7 +68,7 @@ static bool s_js_ready;
 ```
 
 This can be exported in a header file for other parts of the app to check. Any
-parts of the app that are waiting should call this as part of a 
+parts of the app that are waiting should call this as part of a
 [retry](#timeouts-and-retries) mechanism.
 
 ```c
@@ -122,7 +122,7 @@ Under such a scheme:
 The interval chosen before a timeout occurs and the message is resent may vary
 depending on the circumstances. The first failure should be reattempted fairly
 quickly (one second), with the interval increasing as successive failures
-occurs. If the connection is not available the timer interval should be 
+occurs. If the connection is not available the timer interval should be
 [even longer](https://en.wikipedia.org/wiki/Exponential_backoff), or wait until
 the connection is restored.
 
@@ -186,7 +186,7 @@ message reattempted after an additional delay (the 'retry interval') to avoid
 saturating the channel:
 
 ```c
-static void outbox_failed_handler(DictionaryIterator *iter, 
+static void outbox_failed_handler(DictionaryIterator *iter,
                                       AppMessageResult reason, void *context) {
   // Message failed before timer elapsed, reschedule for later
   if(s_timout_timer) {
@@ -195,7 +195,7 @@ static void outbox_failed_handler(DictionaryIterator *iter,
 
   // Inform the user of the failure
   text_layer_set_text(s_status_layer, "Failed. Retrying...");
-  
+
   // Use the timeout handler to perform the same action - resend the message
   const int retry_interval_ms = 500;
   app_timer_register(retry_interval_ms, timout_timer_handler, NULL);
@@ -220,7 +220,7 @@ successive messages.
 Because there is no guarantee of how long a message will take to transmit,
 simply using timers to schedule multiple messages after one another is not
 reliable. A much better method is to make good use of the callbacks provided by
-the ``AppMessage`` API. 
+the ``AppMessage`` API.
 
 
 ### Sending a List to the Phone
@@ -380,7 +380,7 @@ can be applied exactly to either and Android or iOS companion app wishing to
 transmit many data items to Pebble.
 
 
-Get the complete source code for this example from the 
+Get the complete source code for this example from the
 [`list-items-example`](https://github.com/pebble-examples/list-items-example)
 repository on GitHub.
 
@@ -421,7 +421,7 @@ of how to display a compressed PNG image will be discussed here. The image that
 will be displayed is
 [the HTML 5 logo](https://www.w3.org/html/logo/):
 
-![](http://developer.getpebble.com.s3.amazonaws.com/assets/other/html5-logo-small.png)
+![The HTML5 logo.](/images/guides/pebble-apps/communications/html5-logo-small.png)
 
 > Note: The above image has been resized and palettized for compatibility.
 
@@ -431,7 +431,7 @@ data in the correct format:
 
 ```js
 function downloadImage() {
-  var url = 'http://developer.getpebble.com.s3.amazonaws.com/assets/other/html5-logo-small.png';
+  var url = 'https://developer.rebble.io/assets/images/guides/pebble-apps/communications/html5-logo-small.png';
 
   var request = new XMLHttpRequest();
   request.onload = function() {
@@ -446,8 +446,8 @@ function downloadImage() {
 When the response has been received, `processImage()` will be called. The
 received data must be converted into an array of unsigned bytes, which is
 achieved through the use of a `Uint8Array`. This process is shown below (see
-the 
-[`png-download-example`](https://github.com/pebble-examples/png-download-example) 
+the
+[`png-download-example`](https://github.com/pebble-examples/png-download-example)
 repository for the full example):
 
 ```js
@@ -485,7 +485,7 @@ allocate to store the compressed image data:
 function transmitImage(array) {
   var index = 0;
   var arrayLength = array.length;
-  
+
   // Transmit the length for array allocation
   Pebble.sendAppMessage({'DataLength': arrayLength}, function(e) {
     // Success, begin sending chunks
@@ -627,6 +627,6 @@ if(complete_t) {
 The final result is a compressed PNG image downloaded from the web displayed in
 a Pebble watchapp.
 
-Get the complete source code for this example from the 
-[`png-download-example`](https://github.com/pebble-examples/png-download-example) 
+Get the complete source code for this example from the
+[`png-download-example`](https://github.com/pebble-examples/png-download-example)
 repository on GitHub.
