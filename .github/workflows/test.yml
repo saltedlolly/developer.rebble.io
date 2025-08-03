@@ -29,23 +29,3 @@ jobs:
           name: test-report
           path: /tmp/rspec_report.json
           if-no-files-found: error
-
-  report:
-    runs-on: ubuntu-24.04
-    needs: test
-    if: always()
-
-    permissions:
-      contents: read
-      pull-requests: write
-
-    steps:
-      - name: Download report artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: test-report
-
-      - name: Report results
-        uses: SonicGarden/rspec-report-action@v6
-        with:
-          json-path: rspec_report.json
