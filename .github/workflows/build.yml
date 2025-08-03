@@ -90,8 +90,6 @@ jobs:
       - gendocs-c
       - gendocs-android
       - gendocs-ios
-    outputs:
-      artifact_id: ${{ steps.upload_artifact.outputs.artifact_id }}
 
     steps:
       - name: Checkout
@@ -130,7 +128,6 @@ jobs:
           DOCS_URL: /tmp/docs/
 
       - name: Upload artifact
-        id: upload_artifact
         uses: actions/upload-pages-artifact@v3
         with:
           name: site-build
@@ -153,4 +150,4 @@ jobs:
         id: deploy
         uses: actions/deploy-pages@v4
         with:
-          artifact_name: ${{ needs.build.outputs.artifact_id }}
+          artifact_name: site-build
