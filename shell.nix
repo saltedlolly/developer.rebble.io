@@ -12,6 +12,8 @@ pkgs.mkShell {
     ruby
     solargraph
     python3
+    typescript
+    typescript-language-server
     vscode-langservers-extracted
     zlib
   ];
