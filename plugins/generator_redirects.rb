@@ -30,18 +30,8 @@ module Jekyll
       end
 
       # Generate redirects for the old URLs under the /developer.pebble.com/ subpath to new, subpath-less location
-      site.pages.each do |page|
-        next if page.url.start_with?('/developer.pebble.com/')
-        next if page.url.start_with?('/assets/')
-
-        if page.url.end_with?('/')
-          @site.pages <<
-            RedirectPage.new(@site, @site.source, "/developer.pebble.com#{page.url}", 'index.html', page.url)
-        else
-          @site.pages <<
-            RedirectPage.new(@site, @site.source, File.dirname("/developer.pebble.com#{page.url}"), File.basename(page.url), page.url)
-        end
-      end
+      site.pages.dup.reject { |page| page.url.start_with?('/assets/') }.each(&method(:create_old_path_redirect))
+      site.collections.flat_map { |collection| collection[1].docs }.each(&method(:create_old_path_redirect))
     end
 
     private
@@ -54,6 +44,16 @@ module Jekyll
       return true if File.basename(from) == 'index.html' && File.dirname(from) == File.dirname("#{to}index.html")
 
       false
+    end
+
+    def create_old_path_redirect(page)
+      if page.url.end_with?('/')
+        @site.pages <<
+          RedirectPage.new(@site, @site.source, "/developer.pebble.com#{page.url}", 'index.html', page.url)
+      else
+        @site.pages <<
+          RedirectPage.new(@site, @site.source, File.dirname("/developer.pebble.com#{page.url}"), File.basename(page.url), page.url)
+      end
     end
   end
 
