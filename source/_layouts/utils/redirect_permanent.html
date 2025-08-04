@@ -27,5 +27,21 @@ new ones.
 {% capture redirect_url %}{{ page.redirect_to }}{% endcapture %}
 {% endif %}
 
-<meta http-equiv="refresh" content="0; url={{ redirect_url }}">
-<link rel="canonical" href="{{ redirect_url }}" />
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="0; url={{ redirect_url }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="canonical" href="{{ redirect_url }}" />
+    <title>Redirecting to: {{ redirect_url }}</title>
+  </head>
+  <body>
+    <p>
+      Redirecting to {{ redirect_url }}...
+    </p>
+    <p>
+      <a href="{{ redirect_url }}">Click here</a> if the page does not load.
+    </p>
+  </body>
+</html>
