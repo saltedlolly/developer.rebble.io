@@ -9,6 +9,7 @@ pkgs.mkShell {
   packages = with pkgs; [
     bundler
     nodejs
+    just
     ruby
     solargraph
     python3
