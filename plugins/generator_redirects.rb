@@ -50,9 +50,13 @@ module Jekyll
       if page.url.end_with?('/')
         @site.pages <<
           RedirectPage.new(@site, @site.source, "/developer.pebble.com#{page.url}", 'index.html', page.url)
+        @site.pages <<
+          RedirectPage.new(@site, @site.source, "/developer.getpebble.com#{page.url}", 'index.html', page.url)
       else
         @site.pages <<
           RedirectPage.new(@site, @site.source, File.dirname("/developer.pebble.com#{page.url}"), File.basename(page.url), page.url)
+        @site.pages <<
+          RedirectPage.new(@site, @site.source, File.dirname("/developer.getpebble.com#{page.url}"), File.basename(page.url), page.url)
       end
     end
   end
