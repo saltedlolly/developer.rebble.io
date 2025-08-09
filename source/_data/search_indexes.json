@@ -77,19 +77,19 @@
   },
   "community-resources": {
     "settings": {
-      "attributesToIndex": [
+      "searchable_attributes": [
         "unordered(title)",
         "unordered(content)",
         "unordered(type)"
       ],
-      "attributesToSnippet": [
+      "attributes_to_snippet": [
         "content:30"
       ],
-      "attributesForFaceting": [
+      "attributes_for_faceting": [
       ],
-      "attributeForDistinct": null,
-      "highlightPreTag": "<span class=\"search__result__highlight\">",
-      "highlightPostTag": "</span>"
+      "attribute_for_distinct": null,
+      "highlight_pre_tag": "<span class=\"search__result__highlight\">",
+      "highlight_post_tag": "</span>"
     }
   },
   "other": {
