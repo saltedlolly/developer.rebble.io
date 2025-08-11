@@ -27,6 +27,16 @@ with the appropriate values. Take a look at the
 
 To start the Jekyll web server, run `bundle exec jekyll serve`.
 
+### Docker
+
+Clone repo to your local machine. From the repo root, enter: 
+
+`docker build -t rebble-dev .`
+`docker run --rm -it -p 4000:4000 -v "$PWD":/site -w /site rebble-dev \`
+`  bundle exec jekyll serve --host 0.0.0.0 --port 4000`
+
+Then open http://localhost:4000
+
 ## JS Documentation
 
 The PebbleKit JS and Rocky documentation is generated with the
